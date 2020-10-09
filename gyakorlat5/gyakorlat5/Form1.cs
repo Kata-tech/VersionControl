@@ -9,13 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using gyakorlat5.Entities;
 
+
 namespace gyakorlat5
 {
     public partial class Form1 : Form
     {
         PortfolioEntities context = new PortfolioEntities();
         List<Tick> Ticks;
-        List<PortfolioItem> Portfolio;
+        List<PortfolioItem> Portfolios = new List<PortfolioItem>();
         
         public Form1()
         {
@@ -46,17 +47,17 @@ namespace gyakorlat5
 
         private void CreatePortfolio()
         {
-            Portfolio.Add(new PortfolioItem() { Index = "OTP", Volume = 10 });
-            Portfolio.Add(new PortfolioItem() { Index = "ZWACK", Volume = 10 });
-            Portfolio.Add(new PortfolioItem() { Index = "ELMU", Volume = 10 });
+            Portfolios.Add(new PortfolioItem() { Index = "OTP", Volume = 10 });
+            Portfolios.Add(new PortfolioItem() { Index = "ZWACK", Volume = 10 });
+            Portfolios.Add(new PortfolioItem() { Index = "ELMU", Volume = 10 });
 
-            dataGridView2.DataSource = Portfolio;
+            dataGridView2.DataSource = Portfolios;
         }
 
         private decimal GetPortfolioValue(DateTime date)
         {
             decimal value = 0;
-            foreach (var item in Portfolio)
+            foreach (var item in Portfolios)
             {
                 var last = (from x in Ticks
                             where item.Index == x.Index.Trim()
