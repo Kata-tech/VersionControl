@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -71,7 +72,22 @@ namespace gyakorlat5
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            SaveFileDialog sfd = new SaveFileDialog();
+            if (sfd.ShowDialog() != DialogResult.OK) return;
+            using (StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.UTF8))
+            {
+                foreach (var p in Portfolios)
+                {
+                    sw.Write("Időszak");
+                    sw.Write(";");
+                    sw.Write("Nyereség");
+                    sw.WriteLine();
+                    sw.Write(p.Index);
+                    sw.Write(";");
+                    sw.Write(p.Volume);
+                    sw.WriteLine();
+                }
+            }
         }
     }
 }
