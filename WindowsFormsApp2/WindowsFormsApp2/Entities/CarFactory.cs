@@ -11,7 +11,7 @@ namespace WindowsFormsApp2.Entities
     {
         public Toy Createnew()
         {
-            return new Ball();
+            return new Car();
         }
     }
 }

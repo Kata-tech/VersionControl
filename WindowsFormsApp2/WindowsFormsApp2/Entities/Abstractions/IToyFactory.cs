@@ -8,6 +8,6 @@ namespace WindowsFormsApp2.Entities.Abstractions
 {
     public interface IToyFactory
     {
-        Toy Createnew();
+        Toy CreateNew();
     }
 }

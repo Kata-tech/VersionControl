@@ -27,7 +27,7 @@ namespace WindowsFormsApp2.Entities.Abstractions
         protected abstract void DrawImage(Graphics g);
        
 
-        public void MoveBall()
+        public void MoveToy()
         {
             Left += 1;
         }
