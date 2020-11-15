@@ -26,5 +26,34 @@ namespace WindowsFormsApp2
         {
             InitializeComponent();
         }
+
+        private void createTimer_Tick(object sender, EventArgs e)
+        {
+            var Ball = Factory.CreateNew();
+            _balls.Add(Ball);
+            Ball.Left = -Ball.Width;
+            mainPanel.Controls.Add(Ball);
+
+        }
+
+        private void conveyorTimer_Tick(object sender, EventArgs e)
+        {
+            var maxPosition = 0;
+            foreach (var Ball in _balls)
+            {
+                Ball.MoveBall();
+                if (Ball.Left > maxPosition)
+                {
+                    maxPosition = Ball.Left;
+                }
+            }
+
+            if (maxPosition >1000)
+            {
+                var oldestBall = _balls[0];
+                mainPanel.Controls.Remove(oldestBall);
+                _balls.Remove(oldestBall);
+            }
+        }
     }
 }
