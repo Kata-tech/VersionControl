@@ -7,9 +7,8 @@ using WindowsFormsApp2.Entities.Abstractions;
 
 namespace WindowsFormsApp2.Entities
 {
-    public class BallFactory : IToyFactory
+    public class CarFactory : IToyFactory
     {
-
         public Toy Createnew()
         {
             return new Ball();
