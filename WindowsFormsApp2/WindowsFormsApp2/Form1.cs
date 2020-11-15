@@ -25,26 +25,27 @@ namespace WindowsFormsApp2
         public Form1()
         {
             InitializeComponent();
+            Factory = new BallFactory();
         }
 
         private void createTimer_Tick(object sender, EventArgs e)
         {
-            var Ball = Factory.CreateNew();
-            _balls.Add(Ball);
-            Ball.Left = -Ball.Width;
-            mainPanel.Controls.Add(Ball);
+            var ball = Factory.CreateNew();
+            _balls.Add(ball);
+            ball.Left = -ball.Width;
+            mainPanel.Controls.Add(ball);
 
         }
 
         private void conveyorTimer_Tick(object sender, EventArgs e)
         {
             var maxPosition = 0;
-            foreach (var Ball in _balls)
+            foreach (var ball in _balls)
             {
-                Ball.MoveBall();
-                if (Ball.Left > maxPosition)
+                ball.MoveBall();
+                if (ball.Left > maxPosition)
                 {
-                    maxPosition = Ball.Left;
+                    maxPosition = ball.Left;
                 }
             }
 
