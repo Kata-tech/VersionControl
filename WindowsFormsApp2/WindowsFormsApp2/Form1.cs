@@ -35,10 +35,10 @@ namespace WindowsFormsApp2
 
         private void createTimer_Tick(object sender, EventArgs e)
         {
-            var ball = Factory.CreateNew();
-            _toys.Add(ball);
-            ball.Left = -ball.Width;
-            mainPanel.Controls.Add(ball);
+            var toy = Factory.CreateNew();
+            _toys.Add(toy);
+            toy.Left = -toy.Width;
+            mainPanel.Controls.Add(toy);
 
         }
 
@@ -71,7 +71,10 @@ namespace WindowsFormsApp2
 
         private void BallButton_Click(object sender, EventArgs e)
         {
-            Factory = new BallFactory();
+            Factory = new BallFactory()
+            {
+                BallColor = buttonColor.BackColor
+            };
 
         }
 

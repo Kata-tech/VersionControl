@@ -11,13 +11,21 @@ namespace WindowsFormsApp2.Entities
 {
     public class Ball : Toy
     {
+
+        public SolidBrush BallColor { get; private set; }
+
         public Ball()
         {
-        AutoSize= false;
-            Width= 50;
+            AutoSize = false;
+            Width = 50;
             Height = 50;
             Paint += Ball_Paint;
 
+        }
+
+        public Ball(Color color)
+        {
+            BallColor = new SolidBrush(color);
         }
 
         private void Ball_Paint(object sender, PaintEventArgs e)
@@ -32,7 +40,7 @@ namespace WindowsFormsApp2.Entities
 
         protected override void DrawImage(Graphics g)
         {
-            g.FillEllipse(new SolidBrush(Color.Blue), 0, 0, Width, Height);
+            g.FillEllipse(BallColor, 0, 0, Width, Height);
         }
     }
 }
