@@ -9,7 +9,9 @@ namespace WindowsFormsApp2.Entities
 {
     public class CarFactory : IToyFactory
     {
-        public Toy Createnew()
+        
+
+        public Toy CreateNew()
         {
             return new Car();
         }

@@ -10,7 +10,8 @@ namespace WindowsFormsApp2.Entities
     public class BallFactory : IToyFactory
     {
 
-        public Toy Createnew()
+
+        public Toy CreateNew()
         {
             return new Ball();
         }

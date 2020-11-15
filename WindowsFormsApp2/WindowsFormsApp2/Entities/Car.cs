@@ -12,7 +12,7 @@ namespace WindowsFormsApp2.Entities
     {
         protected override void DrawImage(Graphics g)
         {
-            Image imageFile = Image.FromFile("Images/car.png");
+            Image imageFile = Image.FromFile("Images/carimage.png");
             g.DrawImage(imageFile, new Rectangle(0, 0, Width, Height));
         }
     }
