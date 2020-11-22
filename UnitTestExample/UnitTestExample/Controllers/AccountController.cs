@@ -25,9 +25,9 @@ namespace UnitTestExample.Controllers
             if(!ValidateEmail(email))
                 throw new ValidationException(
                     "A megadott e-mail cím nem megfelelő!");
-            if(!ValidateEmail(email))
+            if(!ValidatePassword(password))
                 throw new ValidationException(
-                    "A megadottt jelszó nem megfelelő!\n" +
+                    "A megadottt jelszó nem megfelelő!" +
                     "A jelszó legalább 8 karakter hosszú kell legyen, csak az angol ABC betűiből és számokból állhat, és tartalmaznia kell legalább egy kisbetűt, egy nagybetűt és egy számot.");
 
             var account = new Account()
@@ -50,7 +50,9 @@ namespace UnitTestExample.Controllers
 
         public bool ValidatePassword(string password)
         {
-            return true;
+            return Regex.IsMatch(
+                password,
+                @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$");
         }
     }
 }
